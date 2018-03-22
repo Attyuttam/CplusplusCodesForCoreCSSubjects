@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+#div1, #div2 {
+    float: left;
+    width: 100px;
+    height: 35px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+}
+</style>
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+   // document.getElementById("test").innerHTML="Stuff is being dragged";
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+    //document.getELementById("test1").innerHTML=ev.target.id;
+}
+
+function drop(ev) {
+    //ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+    //document.getElementById("test").innerHTML="Stuff is dropped";
+    //document.getELementById("test1").innerHTML=data;
+}
+</script>
+</head>
+<body>
+
+
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="t.jpg" draggable="true" ondragstart="drag(event)" id="drag1" width="88" height="31">
+</div>
+
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+</body>
+</html>

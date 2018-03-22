@@ -1,0 +1,36 @@
+<html>
+<head>
+<style>
+
+</style>
+<script>
+	function myAction(){
+		var inp=document.getElementById("input").value;
+		
+		
+		document.getElementById("result1").innerHTML=inp.toUpperCase();
+		document.getElementById("result2").innerHTML=inp.toLowerCase();
+
+	}
+</script>
+</head>
+<body>
+<table id="container" cellpadding="10px" border="1" style="border-collapse: collapse;">
+<tr>
+	
+	<td><input id="input" type="text" style="width:300px" style="font-family: verdana" placeholder="Enter some string"></td>
+	<td><input type="submit" onclick="myAction()"></td>
+</tr>
+<tr>
+	<td colspan="2" style="font-family: verdana">Uppercase: <p style="font-family: verdana" id="result1"></p></td>
+</tr>
+<tr>
+	<td colspan="2" style="font-family: verdana">Lowercase: <p style="font-family: verdana" id="result2"></p></td>
+</tr>
+	
+	
+</table>
+
+
+</body>
+</html>

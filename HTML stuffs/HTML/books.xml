@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:bookstore xmlns:xs="www.example.com"
+			xmlns:xsi="http://www.w3.org/XML-SchemaInstance"
+			xsi:schemaLocation="www.example.com/books1.xsd">
+	<xs:book id="1">
+		
+		<xs:name>PHP</xs:name>
+		<xs:author>Atty</xs:author>
+	</xs:book> 
+	<xs:book id="2">
+		<xs:name>C++</xs:name>
+		<xs:author>Saha</xs:author>
+	</xs:book>
+	<xs:book id="3">
+		<xs:name>java</xs:name>
+		<xs:author>atty</xs:author>
+	</xs:book>
+
+</xs:bookstore>

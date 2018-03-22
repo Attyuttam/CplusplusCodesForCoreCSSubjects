@@ -1,0 +1,56 @@
+<html>
+<head>
+<style>
+#container{
+	position:absolute;
+	top:200px;
+	left:700px;
+	border:1px solid;
+	width:500px;
+	padding:20px;
+	height:120px;
+	line-height:50px;
+}
+#result{
+	position:absolute;
+	top:500px;
+	left:700px;
+	border:1px solid;
+	width:500px;
+	padding:20px;
+	height:100px;
+	line-height:100px;
+	text-align:center;
+}
+</style>
+<script>
+	function myAction(){
+		var inp=document.getElementById("input").value;
+		var ch=document.getElementById("inputc").value;
+		if(ch.length>1){
+			document.getElementById("result").innerHTML="Invalid character";
+			return;
+		}
+		var len=inp.length;
+		var count=0;
+		for(var i=0;i<len;i++){
+			if(!inp[i].indexOf(ch)){
+				
+				count++;
+			}
+		}	
+		document.getElementById("result").innerHTML="The number of occurences of "+ch+" is "+count;
+	
+	}
+</script>
+</head>
+<body>
+<div id="container">
+<input id="input" type="text" style="width:300px" placeholder="Enter some string">
+<input id="inputc" type="text" style="width:300px" placeholder="Enter a character ">
+<br><input type="submit" onclick="myAction()">
+</div>
+
+<p id="result"></p>
+</body>
+</html>

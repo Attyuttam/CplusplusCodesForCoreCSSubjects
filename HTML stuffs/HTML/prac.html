@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+	#d1,#d2{
+		float:left;
+		border:1px solid black;
+		height: 350px;
+		width: 350px;
+	}
+</style>
+	<title></title>
+	<script type="text/javascript">
+		function startdrag(ev){
+			ev.preventDefault();
+		}
+		function dragallow(ev){
+			ev.dataTransfer.setData("text",ev.target.id);
+			//document.getELementById("test").innerHTML=ev.target.id;
+		}
+		function drop(ev){
+			//ev.preventDefault();
+			var data=ev.dataTransfer.getData("text");
+			ev.target.appendChild(document.getElementById(data));
+			//document.getELementById("test").innerHTML=data;
+
+		}
+		
+	</script>
+</head>
+<body>
+<div id="d1" ondragover="startdrag(event)" ondrop="drop(event)" >
+	<img id="drag1" src="t.jpg" draggable="true" ondragstart="dragallow(event)" height="220" width="220">
+</div>
+<div id="d2" ondragover="startdrag(event)" ondrop="drop(event)"></div>
+
+
+</body>
+</html>

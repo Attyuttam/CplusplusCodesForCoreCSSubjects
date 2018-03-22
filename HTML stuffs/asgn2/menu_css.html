@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>Menu</title>
+
+<style>
+#container{
+	font-size:25px;
+	padding:10px;
+	margin:0 auto;
+	border:1px solid gainsboro;
+	height:400px;
+	border-radius:6px;
+}
+#det,#fea{
+	position:relative;
+	
+	padding:20px;
+	width:500px;
+	text-align:center;
+}
+#det{
+	float:right;	
+	border:1px solid Gainsboro;
+}
+#fea{
+	float:left;
+	color:green;
+	font-family:verdana;
+	font-weight:bold;
+}
+#det{
+	color:cyan;
+	font-family:verdana;
+	font-weight:bold;
+}
+#window{
+	position:relative;
+	left:100px;
+	font-size:20px;
+	font-family:Arial;
+	color:grey;
+}
+#det:hover,#fea:hover{
+	color:orange;
+	cursor:pointer;
+}
+</style>
+<script>
+	function changeBorder_det(){
+		document.getElementById("fea").style.border="1px solid Gainsboro";
+		document.getElementById("window").innerHTML="Hardware and Software Configuration";
+		document.getElementById("det").style.border="1px solid white";
+		
+	}/*
+	function changeBorder2_det(){
+		document.getElementById("det").style.border="1px solid white";
+	}*/
+	function changeBorder_fea(){
+		document.getElementById("det").style.border="1px solid Gainsboro";
+		document.getElementById("window").innerHTML="Lenovo,iphone,etc..";
+		document.getElementById("fea").style.border="1px solid white";
+	}
+	/*function changeBorder2_fea(){
+		document.getElementById("fea").style.border="1px solid white";
+	}*/
+	
+</script>
+</head>
+<body>
+<div id="container">
+	<div id="fea" onclick="changeBorder_fea()">
+		Features
+	</div>
+	<div id="det" onclick="changeBorder_det()">
+		Details
+	</div>
+<br><br><br><br>
+<p id="window"></p>
+<br><br>
+<hr  width=1902px style="border:1px solid Gainsboro;position:absolute;top:300px;left:7px;">
+	
+</div>
+
+
+
+</body>
+</html>

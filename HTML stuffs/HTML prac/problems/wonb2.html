@@ -1,0 +1,74 @@
+<html>
+<head>
+	<style type="text/css">
+		body{
+			background-image: url("back.jpg");
+			background-repeat: no-repeat;
+			background-position: center;
+			background-attachment: fixed;	
+			z-index:110;
+		}
+		#postermain ul{
+			background-color: black;
+			position: relative;
+			list-style-type: none;
+			margin:0; 
+			padding:0;
+			display: block;			
+		}
+		#postermain ul li{
+			display:inline;
+		}
+		#postermain ul li input{
+			color:white;
+			text-decoration: none;
+			font-size: 1.1em;
+			padding-right:40px; 
+			padding-left:40px; 
+			width:160px;
+			font-family: sans-serif;
+			text-align: center;
+		}
+		#postermain ul li input:hover{
+			background-color: gray;
+		}
+		#details{
+			font-size: 2em;
+		}
+		#show{
+			position: relative;
+			margin-left: 100px;
+			font-size: 1.5em;
+			font-family:algerian;	
+			animation: change;
+			animation-duration:5s;
+			animation-iteration-count: infinite;	
+		}
+		@keyframes change{
+			0%{color:red;}
+			25%{color:blue;}
+			50%{color:green;}
+			75%{color:yellow;}
+			100%{color:red;}
+		}
+	</style>
+</head>
+<body>
+	<span id="show">Upcoming shows...</span>
+
+	<div id="postermain">
+		<ul>
+			<li><input type="image" src="conj.jpg" width=200 height="200"></li>
+			<li><input type="image" src="els.jpg" width=200 height="200"></li>
+			<li><input type="image" src="got.jpg" width=200 height="200"></li>
+			<li><input type="image" src="insi.jpg" width=200 height="200"></li>
+			<li><input type="image" src="mon.jpg" width=200 height="200"></li>
+		</ul>
+	</div>
+	<div id="details">
+		Wheels on Bus is an emerging entertainment company in the field of bookng online movie tickets in India. We pioneered cinema halls in India by establishing in the first multiplex cinema in 2001 and the largest 9 screen multiplex cinema screen in 2007. With its head office in kolkata, Wheels on bus is now serving the major Indian cities.
+
+		Waiting in the queues to book tickets for your favourite shows is extremely tiresome and because of that we have prepared this awesome website to extend a helping hand to you to book tickets of your favourite shows with ease.Whether in a shopping mall or at a restaurant or in the comfort of your home, whenever you are interested in enjoying your show, you can just login to our website and get your tickets in minutes.
+	</div>
+</body>
+</html>

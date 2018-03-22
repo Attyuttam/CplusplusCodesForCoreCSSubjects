@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Schema xmlns="urn:schemas-microsoft-com:xml-data" 
+	xmlns:dt="urn:schemas-microsoft-com:datatypes">
+	<ElementType name="author"/>
+	<ElementType name="image"/>
+	<ElementType name="title"/>
+	<ElementType name="isbn"/>
+	<ElementType name="pages"/>
+	<ElementType name="description"/>
+	<ElementType name="database" content="eltOnly">
+		<group minOccurs="0" maxOccurs="1">
+			<element type="author"/>
+		</group>
+		<group minOccurs="1" maxOccurs="*">
+			<element type="book"/>
+		</group>
+	</ElementType>
+	<ElementType name="book" content="eltOnly"/>
+	<ElementType name="image"/>
+	<ElementType name="title"/>
+	<ElementType name="isbn"/>
+	<ElementType name="pages"/>
+	<ElementType name="description"/>
+	
+</Schema>

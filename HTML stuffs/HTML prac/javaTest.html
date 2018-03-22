@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Client Side Scripting Test</title>
+	<script type="text/javascript">
+	function myAction(){
+		var name=document.getElementById("na").value;
+		
+		if(isNaN(name)){
+			alert("Welcome "+name+ " Your name is not a number");
+		}
+		else{
+			alert("Welcome "+name+" Your name is a number");
+		}
+	}
+
+	</script>
+</head>
+
+<body>
+<form>
+Enter your name: 
+<input type="text" id="na"><br>
+<input type="image" src="tellogo.jpg" width=50 height=50 alt="submit" onclick="myAction()">
+</form>
+</body>
+</html>

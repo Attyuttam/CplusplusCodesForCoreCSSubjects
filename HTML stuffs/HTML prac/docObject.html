@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>doc Object test</title>
+	<script type="text/javascript">
+		function addEventHandler(){
+			var button=document.getElementById("butt");
+			if(butt.addEventListener){
+				butt.addEventListener("click",check,false);
+			}
+		}
+		function removeEventHandler(){
+			var button=document.getElementById("butt");
+			if(butt.removeEventListener){
+				butt.removeEventListener("click",check,false);
+			}
+		}
+		function check(){
+			alert("A click event has occured on the submit button");
+		}
+	</script>
+</head>
+<body>
+<button onclick="addEventHandler()">Add Event</button>
+<button onclick="removeEventHandler()">Remove Event</button>
+<button id="butt">Button</button>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+	<script type="text/javascript">
+		function check(val){
+			if(val.value==""||val.value==null){
+				val.style.background="pink";
+			}
+			else{
+				val.style.background="white";
+			}
+		}
+	</script>
+</head>
+<body>
+<input type="text" id="tex" onblur="check(this)"> 
+</body>
+</html>

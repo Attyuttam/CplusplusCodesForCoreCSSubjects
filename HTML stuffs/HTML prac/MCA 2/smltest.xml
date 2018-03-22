@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+
+
+<database xmlns="x-schema:books-schema.xml">
+		<author>
+			Deitel Associated
+		</author>
+		<book>
+			<title>C++ how to program</title>
+			<isbn>0-13-52980-6</isbn>
+			<pages>1130</pages>
+			<description>This is a book for C++ presented to you by dietel</description>
+			<image>cplus.jpg</image>
+		</book>
+		<book>
+			<title>Java how to program</title>
+			<isbn>0-14-1098-6</isbn>
+			<pages>1135</pages>
+			<description>This is a book for Java presented to you by dietel</description>
+			<image>java.jpg</image>
+		</book>
+		<book>
+			<title>C# how to program</title>
+			<isbn>1-23-62980-6</isbn>
+			<pages>2130</pages>
+			<description>This is a book for C# presented to you by dietel</description>
+			<image>csharp.jpg</image>
+		</book>
+	</database>

@@ -1,0 +1,42 @@
+<html>
+<head>
+<style>
+
+</style>
+<script>
+	function myAction(){
+		var phone=document.getElementById("input").value;
+		var phno=phone.split(" ");
+		
+		var area=phno[0];
+		phone=phno[1];
+		
+		var phn=phone.split("-");
+		var firstthree=phn[0];
+		var lastfour=phn[1];
+		
+		document.getElementById("r1").value=area[1]+area[2]+area[3];
+		document.getElementById("r2").value=firstthree+lastfour;
+	}
+</script>
+</head>
+<body>
+<table id="container" border="1" style="border-collapse: collapse;" cellpadding="10px">
+<tr>
+	<td colspan="2">
+		Enter your phone number: <input id="input" type="text" style="width:300px" placeholder="Enter a phone number in the format (555) 555-5555">
+	</td>
+</tr>
+<tr>
+	<td>Area Code: <input type="text" id="r1" name="r11"></td>
+	<td>Seven digit Phone no: <input type="text" id="r2" name="r22"></td>
+</tr>
+
+
+<tr>
+<td colspan="2"><input type="submit" onclick="myAction()"></td>
+</tr>
+
+</table>
+</body>
+</html>

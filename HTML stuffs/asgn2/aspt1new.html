@@ -1,0 +1,344 @@
+<html>
+<head>
+<title>
+Calculator
+</title>
+<script type="text/javascript">
+	
+	var select=1;
+	var dot_entry=0;
+	function change_text1(){
+		select=1;
+	}
+	function change_text2(){
+		select=2;
+	}
+	function myone(){
+		if(select==1){
+			document.getElementById("in1").value+=1;
+		}
+		else{
+			document.getElementById("in2").value+=1;	
+		}
+	}
+	function mytwo(){
+		if(select==1){
+			document.getElementById("in1").value+=2;
+		}
+		else{
+			document.getElementById("in2").value+=2;	
+		}
+	}
+	function mythree(){
+		if(select==1){
+			document.getElementById("in1").value+=3;
+		}
+		else{
+			document.getElementById("in2").value+=3;	
+		}
+	}
+	function myfour(){
+		if(select==1){
+			document.getElementById("in1").value+=4;
+		}
+		else{
+			document.getElementById("in2").value+=4;	
+		}
+	}
+	function myfive(){
+		if(select==1){
+			document.getElementById("in1").value+=5;
+		}
+		else{
+			document.getElementById("in2").value+=5;	
+		}
+	}
+	function mysix(){
+		if(select==1){
+			document.getElementById("in1").value+=6;
+		}
+		else{
+			document.getElementById("in2").value+=6;	
+		}
+	}
+	function myseven(){
+		if(select==1){
+			document.getElementById("in1").value+=7;
+		}
+		else{
+			document.getElementById("in2").value+=7;	
+		}
+	}
+	function myeight(){
+		if(select==1){
+			document.getElementById("in1").value+=8;
+		}
+		else{
+			document.getElementById("in2").value+=8;	
+		}
+	}
+	function mynine(){
+		if(select==1){
+			document.getElementById("in1").value+=9;
+		}
+		else{
+			document.getElementById("in2").value+=9;	
+		}
+	}
+	function myzero(){
+		if(select==1){
+			document.getElementById("in1").value+=0;
+		}
+		else{
+			document.getElementById("in2").value+=0;	
+		}
+	}
+	function mydot(){
+		if(dot_entry==0){
+			if(select==1){
+			document.getElementById("in1").value+=".";
+			}
+			else{
+				document.getElementById("in2").value+=".";	
+			}	
+			dot_entry=1;
+		}
+		else{
+			document.getElementById("op1").value="Invalid";	
+		}
+		
+	}
+	function myadd(){
+		var x=parseFloat(document.getElementById("in1").value);
+		var y=parseFloat(document.getElementById("in2").value);
+		document.getElementById("op1").value=x+y;
+	}
+	function myminus(){
+		var x=parseFloat(document.getElementById("in1").value);
+		var y=parseFloat(document.getElementById("in2").value);
+		document.getElementById("op1").value=x-y;
+	}
+	function mymultiply(){
+		var x=parseFloat(document.getElementById("in1").value);
+		var y=parseFloat(document.getElementById("in2").value);
+		document.getElementById("op1").value=x*y;
+	}
+	function mydivision(){
+		var x=parseFloat(document.getElementById("in1").value);
+		var y=parseFloat(document.getElementById("in2").value);
+		document.getElementById("op1").value=x/y;
+	}
+	function mymodulo(){
+		var x=parseFloat(document.getElementById("in1").value);
+		var y=parseFloat(document.getElementById("in2").value);
+		document.getElementById("op1").value=x%y;
+	}
+	function myexp(){
+		var x=parseFloat(document.getElementById("in1").value);
+		var y=parseFloat(document.getElementById("in2").value);
+		document.getElementById("op1").value=Math.pow(x,y);
+	}
+	function myand(){
+		var x=parseFloat(document.getElementById("in1").value);
+		var y=parseFloat(document.getElementById("in2").value);
+		document.getElementById("op1").value=x&y;
+	}
+	function myor(){
+		var x=parseFloat(document.getElementById("in1").value);
+		var y=parseFloat(document.getElementById("in2").value);
+		document.getElementById("op1").value=x|y;
+	}
+	function myxor(){
+		var x=parseFloat(document.getElementById("in1").value);
+		var y=parseFloat(document.getElementById("in2").value);
+		document.getElementById("op1").value=Math.pow(x,y);
+	}
+	function mycomp(){
+		var x=parseFloat(document.getElementById("in1").value);
+		document.getElementById("op1").value=~x;
+	}
+	function myleftshift(){
+		var x=parseFloat(document.getElementById("in1").value);
+		var y=parseFloat(document.getElementById("in2").value);
+		document.getElementById("op1").value=x<<y;
+	}
+	function myrightshift(){
+		var x=parseFloat(document.getElementById("in1").value);
+		var y=parseFloat(document.getElementById("in2").value);
+		document.getElementById("op1").value=x>>y;
+	}
+	function myl_and(){
+		var x=parseFloat(document.getElementById("in1").value);
+		var y=parseFloat(document.getElementById("in2").value);
+		document.getElementById("op1").value=x&&y;
+	}
+	function myl_or(){
+		var x=parseFloat(document.getElementById("in1").value);
+		var y=parseFloat(document.getElementById("in2").value);
+		document.getElementById("op1").value=x||y;
+	}
+	function myl_not(){
+		var x=parseFloat(document.getElementById("in1").value);
+		
+		document.getElementById("op1").value=!x;
+	}
+	function mysin(){
+		var x=parseFloat(document.getElementById("in1").value);
+		
+		document.getElementById("op1").value=Math.sin(x);
+	}
+	function mycos(){
+		var x=parseFloat(document.getElementById("in1").value);
+		
+		document.getElementById("op1").value=Math.cos(x);
+	}
+	function mytan(){
+		var x=parseFloat(document.getElementById("in1").value);
+		
+		document.getElementById("op1").value=Math.tan(x);
+	}
+	function myreset(){
+		document.getElementById("in1").value="";
+		document.getElementById("in2").value="";
+		document.getElementById("op1").value="";
+		dot_entry=0;	
+	}
+</script>
+<style>
+#first{
+	position: absolute;
+	top:100px;
+	left:400px;
+	
+	border-collapse:collapse;
+}
+#second{
+	position: absolute;
+	top:200px;
+	left:350px;
+	
+	border-collapse:collapse;	
+}
+#operations{
+	position: absolute;
+	top:400px;
+	left:350px;
+	
+	border-collapse:collapse;	
+}
+#bitwise{
+	position: absolute;
+	top:200px;
+	left:600px;
+	
+	border-collapse:collapse;		
+}
+#trigo{
+	position: absolute;
+	top:200px;
+	left:880px;
+	
+	border-collapse:collapse;		
+}
+#logical{
+	position: absolute;
+	top:400px;
+	left:600px;
+	
+	border-collapse:collapse;		
+}
+#op1{
+
+	width:400px;
+}
+#tdop{
+	position: relative;
+	left:10px;
+}
+#zero,#one,#two,#three,#four,#five,#six,#seven,#eight,#nine,#add,#divide,#multiply,#minus,#modulo,#exp
+,#and,#or,#xor,#leftshift,#rightshift,#complement,#l_and,#l_or,#l_not,#sin,#cos,#tan,#eq,#res,#dot{
+	background: cyan;
+	height:30px;
+	width:30px;
+	position: relative;
+	left:8px;
+	border-radius: 6px;
+}
+#sin,#cos,#res,#tan,#xor{
+	width:50px;
+}
+#number{
+	padding-right: 30px;
+}
+</style>
+</head>
+<body>
+<form>
+<table border="1" cellpadding=10px id="first">
+	<tr id="number">
+		<td  colspan="3" style="font-family: verdana">Input 1: <input id="in1" type="text" onfocus="change_text1()"></td>
+		<td colspan="3" style="font-family: verdana">Input 2: <input id="in2" type="text" onfocus="change_text2()"></td>
+	</tr>
+	<tr>
+		<td colspan="6" id="tdop" style="font-family: verdana">Output: <input id="op1" type="text" width=100%></td>
+	</tr>
+	<tr>
+		<td colspan="6" style="font-family: verdana">Digits</td>
+	</tr>
+	<tr  >
+		<td id="number"><input id="one" type="button" name="1" value=1 onclick="myone()"></td>
+		<td id="number"><input id="two" type="button" name="2" value=2 onclick="mytwo()"></td>
+		<td id="number"><input id="three" type="button" name="3" value=3 onclick="mythree()"></td>
+		<td id="number"><input id="four" type="button" name="4" value=4 onclick="myfour()"></td>
+		<td id="number"><input id="five" type="button" name="5" value=5 onclick="myfive()"></td>
+		<td id="number"><input id="six" type="button" name="6" value=6 onclick="mysix()"></td>
+	</tr>
+
+	<tr>	
+		<td id="number"><input id="seven" type="button" name="7" value=7 onclick="myseven()"></td>
+		<td id="number"><input id="eight" type="button" name="8" value=8 onclick="myeight()"></td>
+		<td id="number"><input id="nine" type="button" name="9" value=9 onclick="mynine()"></td>
+		<td id="number"><input id="zero" type="button" name="0" value=0 onclick="myzero()"></td>
+		<td id="number"><input id="dot" type="button" name="dot" value="." onclick="mydot()"></td>
+		<td id="number"><input id="dot" type="hidden" name="dot"></td>
+	</tr>
+	<tr>
+		<td colspan="6" style="font-family: verdana">Operators</td>
+	</tr>
+	
+	<tr>
+		<td id="number"><input type="button"  name="+" id="add" value="+" onclick="myadd()"></td>
+		<td id="number"><input type="button"  name="/" id="divide" value="/" onclick="mydivision()"></td>
+		<td id="number"><input type="button"  name="-" id="minus" value="-" onclick="myminus()"></td>
+		<td id="number"><input type="button"  name="*" id="multiply" value="*" onclick="mymultiply()"></td>
+		<td id="number"><input type="button"  name="%" id="modulo" value="%" onclick="mymodulo()"></td>
+		<td id="number"><input type="button"  name="^" id="exp" value="^" onclick="myexp()"></td>
+	</tr>
+	<tr>
+		<td colspan="6" style="font-family: verdana">Logical and Bitwise Operators</td>
+	</tr>
+	
+	<tr>
+		<td id="number"><input type="button"  name="&" id="and" value="&" onclick="myand()"></td>
+		<td id="number"><input type="button"  name="|" id="or" value="|" onclick="myor()"></td>
+		<td id="number"><input type="button"  name="xorop" id="xor" value="XOR" onclick="myxor()"></td>
+		<td id="number"><input type="button"  name="~" id="complement" value="~" onclick="mycomp()"></td>
+		<td id="number"><input type="button"  name=">>" id="rightshift" value=">>" onclick="myrightshift()"></td>
+		<td id="number"><input type="button"  name="<<" id="leftshift" value="<<" onclick="myleftshift()"></td>
+	</tr>
+	<tr>
+		<td id="number"><input type="button"  name="&&" id="l_and" value="&&" onclick="myl_and()"></td>
+		<td id="number"><input type="button"  name="||" id="l_or" value="||" onclick="myl_or()"></td>
+		<td id="number"><input type="button"  name="!" id="l_not" value="!" onclick="myl_not()"></td>
+		<td id="number"><input type="button"  name="sine" id="sin" value="sin" onclick="mysin()"></td>
+		<td id="number"><input type="button"  name="cos" id="cos" value="cos" onclick="mycos()"></td>
+		<td id="number"><input type="button"  name="tangent" id="tan" value="tan" onclick="mytan()"></td>
+	</tr>
+	<tr >
+		<td colspan="6" id="number"><center><input type="button"  name="res" id="res" value="Res" onclick="myreset()"></center></td>
+
+	</tr>
+</table>
+</form>
+</body>
+</html>

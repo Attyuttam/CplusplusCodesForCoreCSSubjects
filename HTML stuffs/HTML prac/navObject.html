@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		var x=navigator.appName;
+		document.writeln(x);
+		document.writeln(navigator.appVersion);
+		document.writeln(navigator.appCodeName);
+		document.writeln(navigator.userAgent);
+		document.writeln(navigator.platform);
+		if(navigator.javaEnabled()){
+			document.write("The system is java enabled");
+		}
+		else{
+			document.writeln("The system is not java enabled-");
+		}
+		if(navigator.taintEnabled()){
+			document.write("The system's security enabled");
+		}
+		else{
+			document.writeln("The system's security is not enabled-");
+		}
+	</script>
+</head>
+<body>
+
+</body>
+</html>

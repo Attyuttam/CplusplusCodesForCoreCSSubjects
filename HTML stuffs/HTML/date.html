@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function yesterday(){
+			var d=new Date();
+			d.setDate(d.getDate()-1);
+			document.getElementById("output").innerHTML=d;
+		}
+		function tenyearsago(){
+			var d=new Date();
+			d.setFullYear(d.getFullYear()-10);
+			document.getElementById("output").innerHTML=d;
+		}
+		function oneweekago(){
+			var d=new Date();
+			d.setDate(d.getDate()-7);
+			document.getElementById("output").innerHTML=d;
+		}
+		function today(){
+			var d=new Date();
+			
+			document.getElementById("output").innerHTML=d;
+		}
+
+	</script>
+</head>
+<body>
+<button onclick="yesterday()">YESTERDAY</button>
+<button onclick="oneweekago()">ONE WEEK AGO</button>
+<button onclick="tenyearsago()">TEN YEARS AGO</button>
+<button onclick="today()">TODAY</button>
+<p id="output"></p>
+</body>
+</html>

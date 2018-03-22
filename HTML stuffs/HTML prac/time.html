@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>clock</title>
+	<script type="text/javascript">
+		function clocktime(){
+			var todayDate=new Date();
+			var hrs=todayDate.getHours();
+			var mns=todayDate.getMinutes();
+			var scs=todayDate.getSeconds();
+			hrs=check(hrs);
+			mns=check(mns);
+			scs=check(scs);
+			document.getElementById("displayTime").innerHTML=hrs+" : "+mns+" : "+scs;
+			t=setTimeout('clocktime()',1000);//calls the function after every interval of 1000 milliseconds
+		}
+		function check(t){
+			if(t<10){
+				t="0"+t;
+
+			}
+			return t;
+		}
+	</script>
+</head>
+<body onload="clocktime()">
+<div id="displayTime"></div>
+</body>
+</html>
