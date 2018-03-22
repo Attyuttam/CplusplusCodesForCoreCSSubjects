@@ -1,0 +1,39 @@
+#include<stdio.h>                                                                                                                                             
+#include<unistd.h>                                                                                                                                            
+#include<pthread.h>                                                                                                                                           
+#include<stdlib.h>                                                                                                                                            
+int c=0,a=1,b=0;                                                                                                                                              
+int buffer[100]={0};                                                                                                                                          
+int ind=0;                                                                                                                                                    
+void *fib(){                                                                                                                                                  
+        buffer[ind++]=c;                                                                                                                                      
+        c=a+b;                                                                                                                                                
+        a=b;                                                                                                                                                  
+        b=c;                                                                                                                                                  
+}                                                                                                                                                             
+void *genFib(void *param){                                                                                                                                    
+        int n=(*(int*)(param));                                                                                                                               
+        int i=0;                                                                                                                                              
+        pthread_t ch[n];                                                                                                                                      
+        for(i=0;i<n;i++){                                                                                                                                     
+                pthread_create(&ch[i],NULL,fib,NULL);                                                                                                         
+        }                                                                                                                                                     
+        for(i=0;i<n;i++){                                                                                                                                     
+                pthread_join(ch[i],NULL);                                                                                                                     
+        }                                                                                                                                                     
+        for(i=0;i<n;i++){                                                                                                                                     
+                printf("%d ",buffer[i]);                                                                                                                      
+        }                                                                                                                                                     
+        //printf("%d",n);                                                                                                                                     
+}                                                                                                                                                             
+int main(int argc,char *argv[]){                                                                                                                              
+        pthread_t par;                                                                                                                                        
+        int vl=(atoi)(argv[1]);     
+if(argc<=1){                                                                                                                                          
+                printf("Invalid number of arguments");                                                                                                        
+                return 1;                                                                                                                                     
+        }                                                                                                                                                     
+        //printf("%d",(*(int*)argv[1]));                                                                                                                      
+        pthread_create(&par,NULL,genFib,&vl);                                                                                                                 
+        pthread_join(par,NULL);                                                                                                                               
+}

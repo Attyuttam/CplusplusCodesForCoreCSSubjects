@@ -1,0 +1,64 @@
+#include<stdio.h>                                                                                                                                             
+#include<stdlib.h>                                                                                                                                            
+#include<sys/types.h>                                                                                                                                         
+#include<unistd.h>                                                                                                                                            
+#include<sys/wait.h>                                                                                                                                          
+#include<sys/mman.h>                                                                                                                                          
+                                                                                                                                                              
+#define MAX 100;                                                                                                                                              
+struct region{                                                                                                                                                
+        int len;                                                                                                                                              
+        int buff[MAX];                                                                                                                                        
+};                                                                                                                                                            
+struct region *rptr;                                                                                                                                          
+int fp;                                                                                                                                                       
+//fd=shm_open("/",O_CREAT|O_RDWR,S_IRUSR|S_IWUSR);                                                                                                            
+                                                                                                                                                              
+void coll(int n){                                                                                                                                             
+        printf("\n");                                                                                                                                         
+        rptr->len=0;                                                                                                                                          
+        while(n!=1){                                                                                                                                          
+                rptr->buff[rptr->len]=n;                                                                                                                      
+                rptr->len++;                                                                                                                                  
+                if(n%2==0){                                                                                                                                   
+                        n/=2;                                                                                                                                 
+                }                                                                                                                                             
+                else{                                                                                                                                         
+                        n=3*n+1;                                                                                                                              
+                }                                                                                                                                             
+        }                                                                                                                                                     
+        rptr->buff[rptr->len]=n;                                                                                                                              
+        rptr->len++;                                                                                                                                          
+                                       
+}                                                                                                                                                             
+int main(int argc,char *argv[]){                                                                                                                              
+        pid_t cp;                                                                                                                                             
+        int n;                                                                                                                                                
+        int i;                                                                                                                                                
+        if(argc<2){                                                                                                                                           
+                printf("Invalid number of arguments");return 1;                                                                                               
+        }                                                                                                                                                     
+        n=atoi(argv[1]);                                                                                                                                      
+        if(n<1){printf("Argument should always be >=1");return 1;}                                                                                            
+        cp=fork();                                                                                                                                            
+                                                                                                                                                              
+        fp=shm_open("/",O_CREAT|O_RDWR,S_IRUSR|S_IWUSR);                                                                                                      
+        if(fp==-1){return 1;}                                                                                                                                 
+        if(ftruncate(fp,sizeof(struct region))==-1){return 1;}                                                                                                
+        rptr=mmap(NULL,sizeof(struct region),PROT_READ|PROT_WRITE,MAP_SHARED,fd,0);                                                                           
+        if(rptr=MAP_FAILED){return 1;}                                                                                                                        
+                                                                                                                                                              
+        if(cp<0){printf("Failed to create child");return 1;}                                                                                                  
+        else if(cp>0)                                                                                                                                         
+        {                                                                                                                                                     
+                wait(NULL);                                                                                                                                   
+                for(i=0;i<rptr->len;i++){                                                                                                                     
+                        printf("%d ",rptr->buff[i]);                                                                                                          
+                }                                                                                                                                             
+        }                                                                                                                                                     
+        else{      
+printf("Child process generating the sequence");                                                                                              
+                coll(n);                                                                                                                                      
+        }                                                                                                                                                     
+                                                                                                                                                              
+}

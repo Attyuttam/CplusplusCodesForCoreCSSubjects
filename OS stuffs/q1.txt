@@ -1,0 +1,40 @@
+#include<stdio.h>                                                                                                                                             
+#include<stdlib.h>                                                                                                                                            
+#include<pthread.h>                                                                                                                                           
+int n=0;                                                                                                                                                      
+void *avg(void *param){                                                                                                                                       
+        int *arr=(int*)param;                                                                                                                                 
+        int i=0;                                                                                                                                              
+        int sum=0;                                                                                                                                            
+        float avg=0.0;                                                                                                                                        
+        for(i=0;i<n;i++){                                                                                                                                     
+                sum+=arr[i];                                                                                                                                  
+        }                                                                                                                                                     
+        avg=(sum/(float)n);                                                                                                                                   
+        //printf("%d\n",sum);                                                                                                                                 
+        printf("%.2f\n",avg);                                                                                                                                 
+}                                                                                                                                                             
+void *max(void *param){                                                                                                                                       
+        int *arr=(int*)param;                                                                                                                                 
+        int i=0;                                                                                                                                              
+        int max=arr[0];                                                                                                                                       
+        for(int i=1;i<n;i++){                                                                                                                                 
+                if(arr[i]>max){                                                                                                                               
+                        max=arr[i];                                                                                                                           
+                }                                                                                                                                             
+        }                                                                                                                                                     
+        printf("%d\n",max);                                                                                                                                   
+}                                                                                                                                                             
+int main(int argc,char *argv[]){                                                                                                                              
+         n=atoi(argv[1]);                                                                                                                                     
+        int arr[n];                                                                                                                                           
+        int i;         
+        pthread_t p1,p2;                                                                                                                                      
+        for(i=0;i<n;i++){                                                                                                                                     
+                arr[i]=atoi(argv[i+2]);                                                                                                                       
+        }                                                                                                                                                     
+        pthread_create(&p1,NULL,avg,arr);                                                                                                                     
+        pthread_join(p1,NULL);                                                                                                                                
+        pthread_create(&p2,NULL,max,arr);                                                                                                                     
+        pthread_join(p2,NULL);                                                                                                                                
+}

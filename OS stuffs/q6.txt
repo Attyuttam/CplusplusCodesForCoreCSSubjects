@@ -1,0 +1,42 @@
+no 3
+kese kiya ??
+
+#include<stdio.h>
+#include<pthread.h>
+
+int sum=0,n,p;
+
+void *child(void *num)
+{
+	int val=*((int *)num);
+	if(n%val==0)
+	sum+=val;
+}
+void *parent()
+{
+pthread_t tid[p];
+int k,i;
+	for(i=1;i<=n;i++)
+	{
+	pthread_create(&tid[(i-1)%p],NULL,&child,&i);
+	pthread_join(tid,NULL);
+	}
+	if(sum/2==n)
+	printf("True\n");
+	else
+	printf("False\n");
+}
+int main(int argc,char *argv[])
+{
+	if(argc<=2 && argc>3)
+	{
+	fprintf(stderr,"error\n");
+	return 0;
+	}
+	n=atoi(argv[1]);
+	p=atoi(argv[2]);
+
+	phread_t pid;
+	pthred_create(&pid,NULL,&parent,NULL);
+	pthread_join(pid,NULL);
+}

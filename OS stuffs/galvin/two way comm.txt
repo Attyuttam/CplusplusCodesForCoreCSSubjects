@@ -1,0 +1,50 @@
+#include<stdio.h>                                                                                                                                             
+#include<stdlib.h>                                                                                                                                            
+#include<sys/types.h>                                                                                                                                         
+#include<unistd.h>                                                                                                                                            
+#include<string.h>                                                                                                                                            
+#define MAX 100                                                                                                                                               
+#define READ_END 0                                                                                                                                            
+#define WRITE_END 1                                                                                                                                           
+int main(int argc,char *argv[]){                                                                                                                              
+        int fdp[2];                                                                                                                                           
+        int fdc[2];                                                                                                                                           
+        pid_t p;                                                                                                                                              
+        char write_to_child[100];                                                                                                                             
+        char read_from_parent[100];                                                                                                                           
+        char write_to_parent[100];                                                                                                                            
+        char read_from_child[100];                                                                                                                            
+        if(pipe(fdp)==-1){printf("pipe failed\n");return 1;}                                                                                                  
+        if(pipe(fdc)==-1){printf("pipe failed\n");return 1;}                                                                                                  
+        if(argc<1){printf("Not enough arguements");return 1;}                                                                                                 
+        p=fork();                                                                                                                                             
+        if(p>0){                                                                                                                                              
+                //parent process                                                                                                                              
+                close(fdp[READ_END]);                                                                                                                         
+                write_to_child[0]='\0';                                                                                                                       
+                strcat(write_to_child,argv[1]);                                                                                                               
+                //write_to_child=(char*)argv[1];                                                                                                              
+                write(fdp[WRITE_END],write_to_child,strlen(write_to_child)+1);                                                                                
+                close(fdp[WRITE_END]);                                                                                                                        
+                                                                                                                                                              
+                //reading from child     
+ close(fdc[WRITE_END]);                                                                                                                        
+                read(fdc[READ_END],read_from_child,MAX);                                                                                                      
+                printf("\nread from child: %s",read_from_child);                                                                                              
+                close(fdc[READ_END]);                                                                                                                         
+        }                                                                                                                                                     
+        else{                                                                                                                                                 
+                close(fdp[WRITE_END]);                                                                                                                        
+                read(fdp[READ_END],read_from_parent,MAX);                                                                                                     
+                printf("\nread from parent: %s\n",read_from_parent);                                                                                          
+                close(fdp[READ_END]);                                                                                                                         
+                                                                                                                                                              
+                //write to parent                                                                                                                             
+                close(fdc[READ_END]);                                                                                                                         
+                write_to_parent[0]='\0';                                                                                                                      
+                strcat(write_to_parent,read_from_parent);                                                                                                     
+                write(fdc[WRITE_END],write_to_parent,strlen(write_to_parent)+1);                                                                              
+                close(fdc[WRITE_END]);                                                                                                                        
+        }                                                                                                                                                     
+                                                                                                                                                              
+}
